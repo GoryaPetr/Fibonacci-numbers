@@ -14,12 +14,12 @@ public class fibonacci {
         try {
             String str_first, str_second;
             System.out.println("Enter first number: ");
-            BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
-            str_first = buf.readLine();
-            i = Long.parseLong(str_first);
+                BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
+                str_first = buf.readLine();
+                i = Long.parseLong(str_first);
             System.out.println("Enter second number: ");
-            str_second = buf.readLine();
-            j = Long.parseLong(str_second);
+                str_second = buf.readLine();
+                j = Long.parseLong(str_second);
             //System.out.print(i + " " + j);//Print first and second position in Fibonacci array,  uncomment this line for print
             sec[0] = i;
             sec[1] = j;
@@ -36,13 +36,10 @@ public class fibonacci {
             }
             long sum = 0, temp = 0;
             for (int y = 0; y < sec.length - 1; y++) {
-
                 if (sec[y] % 2 == 0) {
-
                     sum = temp + sec[y];
                     temp = sum;
                 }
-
             }
             System.out.println("");
             System.out.print("Sum of the even-valued terms : ");
