@@ -1,12 +1,57 @@
-*.class
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+/**
+ * Created by Petro Gorya on 20.04.2015.
+ */
+ 
+public class fibonacci {
+    public static void main(String[]args) throws Exception {
+        long i, j, fib = 0;
+        int x = 2;
+        final long q = 4000000;
+        long[] sec = new long[50];
+        try {
+            String str_first, str_second;
+            System.out.println("Enter first number: ");
+            BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
+            str_first = buf.readLine();
+            i = Long.parseLong(str_first);
+            System.out.println("Enter second number: ");
+            str_second = buf.readLine();
+            j = Long.parseLong(str_second);
+            System.out.print(i + " " + j);
+            sec[0] = i;
+            sec[1] = j;
+            while (fib < q) {
+                fib = i + j;
+                if (fib > q)
+                    break;
+                i = j;
+                j = fib;
+                System.out.print(" " + fib);
+                sec[x] = fib;
+                x++;
 
-# Package Files #
-*.jar
-*.war
-*.ear
+            }
+            long sum = 0, temp = 0;
+            for (int y = 0; y < sec.length - 1; y++) {
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+                if (sec[y] % 2 == 0) {
+
+                    sum = temp + sec[y];
+                    temp = sum;
+                }
+
+            }
+            System.out.println("");
+            System.out.print("Sum of the even-valued terms : ");
+            System.out.print(sum);
+
+        }
+        catch (NumberFormatException e){
+            System.out.println("You put wrong symbol");
+        }
+    }
+}
+
