@@ -1,10 +1,10 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.SocketPermission;
 
 /**
  * Created by Petro Gorya on 20.04.2015.
  */
- 
 public class fibonacci {
     public static void main(String[]args) throws Exception {
         long i, j, fib = 0;
@@ -20,7 +20,7 @@ public class fibonacci {
             System.out.println("Enter second number: ");
             str_second = buf.readLine();
             j = Long.parseLong(str_second);
-            System.out.print(i + " " + j);
+            //System.out.print(i + " " + j);//Print first and second position in Fibonacci array,  uncomment this line for print
             sec[0] = i;
             sec[1] = j;
             while (fib < q) {
@@ -29,7 +29,7 @@ public class fibonacci {
                     break;
                 i = j;
                 j = fib;
-                System.out.print(" " + fib);
+                //System.out.print(" " + fib); //Print array Fibonacci, uncomment this line for print array
                 sec[x] = fib;
                 x++;
 
@@ -52,6 +52,8 @@ public class fibonacci {
         catch (NumberFormatException e){
             System.out.println("You put wrong symbol");
         }
+        finally{
+            System.out.println(" ");
+        }
     }
 }
-
